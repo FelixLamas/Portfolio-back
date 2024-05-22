@@ -3,6 +3,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const path = require("path");
 const dataBaseC = require("./dbConection.js");
+const TechnologyRoutes = require("./routes/TechnologyRoutes.js");
 
 const app = express();
 
@@ -31,3 +32,4 @@ app.get("/test", async (req, res) => {
     console.error(error);
   }
 });
+TechnologyRoutes("/technology", app);

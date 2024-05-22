@@ -5,8 +5,8 @@ const TechnologyRoutes = (base, app) => {
 
   app.post(`${base}`, async (req, res) => {
     try {
-      const { name, description } = req.body;
-      await technologyController.Create(name, description);
+      const { name, icon, description } = req.body;
+      await technologyController.Create(name, icon, description);
       res.status(201).json("Exito, se creo la tecnología correctamente.");
     } catch (error) {
       console.error("Error al crear la tecnología.", error);

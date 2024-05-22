@@ -1,17 +1,25 @@
 const TechnologyModel = require("../models/TechnologyModel");
-const { validationName, validationDescription } = require("../util/helpers");
+const {
+  validationName,
+  validateIcon,
+  validationDescription,
+} = require("../util/helpers");
 
 class TechnologyController {
-  async Create(name, description) {
+  async Create(name, icon, description) {
     try {
       if (!validationName(name)) {
         throw new Error("Nombre de la tecnología invalido.");
+      }
+      if (!validateIcon(icon)) {
+        throw new Error("Icono de la tecnología invalido.");
       }
       if (!validationDescription(description)) {
         throw new Error("Nombre de la tecnología invalido.");
       }
       const newTechnology = TechnologyModel({
         name: name,
+        icon: icon,
         description: description,
       });
       const saveTechnology = await newTechnology.save();

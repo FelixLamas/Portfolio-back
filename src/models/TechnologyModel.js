@@ -9,6 +9,10 @@ const TechnologySchema = new Schema({
     maxLength: 25,
     unique: true,
   },
+  icon: {
+    type: String,
+    require: (true, "El icono de la tecnología es requerido."),
+  },
   description: {
     type: String,
     require: (true, "La descripción es requerida."),

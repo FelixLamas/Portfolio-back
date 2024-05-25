@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const path = require("path");
 const dataBaseC = require("./dbConection.js");
 const TechnologyRoutes = require("./routes/TechnologyRoutes.js");
+const ProjectRoutes = require("./routes/ProjectRoutes.js");
 
 const app = express();
 
@@ -33,3 +34,4 @@ app.get("/test", async (req, res) => {
   }
 });
 TechnologyRoutes("/technology", app);
+ProjectRoutes("/project", app);

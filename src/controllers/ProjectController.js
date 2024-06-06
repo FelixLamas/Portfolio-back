@@ -1,7 +1,6 @@
 const ProjectModel = require("../models/ProjectModel");
 const {
   validationName,
-  validateIcon,
   validationDescription,
   validateUrl,
 } = require("../util/helpers");
@@ -12,7 +11,7 @@ class ProjectController {
       if (!validationName(name)) {
         throw new Error("Nombre del Proyecto invalido.");
       }
-      if (!validateIcon(image)) {
+      if (!validateUrl(image)) {
         throw new Error("Imagen del proyecto invalida.");
       }
       if (!validationDescription(description)) {

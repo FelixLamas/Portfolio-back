@@ -1,7 +1,7 @@
 const TechnologyModel = require("../models/TechnologyModel");
 const {
   validationName,
-  validateIcon,
+  validateUrl,
   validationDescription,
 } = require("../util/helpers");
 
@@ -11,7 +11,7 @@ class TechnologyController {
       if (!validationName(name)) {
         throw new Error("Nombre de la tecnología invalido.");
       }
-      if (!validateIcon(icon)) {
+      if (!validateUrl(icon)) {
         throw new Error("Icono de la tecnología invalido.");
       }
       if (!validationDescription(description)) {

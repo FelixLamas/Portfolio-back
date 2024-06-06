@@ -5,8 +5,8 @@ const TechnologySchema = new Schema({
   name: {
     type: String,
     require: (true, "El nombre de la tecnología es requerido."),
-    minLength: 1,
-    maxLength: 25,
+    minLength: 4,
+    maxLength: 100,
     unique: true,
   },
   icon: {
@@ -17,7 +17,7 @@ const TechnologySchema = new Schema({
     type: String,
     require: (true, "La descripción es requerida."),
     minLength: 4,
-    maxLength: 200,
+    maxLength: 1500,
   },
 });
 

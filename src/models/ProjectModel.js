@@ -5,15 +5,15 @@ const ProjectSchema = new Schema({
   name: {
     type: String,
     require: (true, "El nombre del proyecto es requrido"),
-    minLength: 5,
-    maxLength: 80,
+    minLength: 4,
+    maxLength: 100,
     unique: true,
   },
   description: {
     type: String,
     require: (true, "La descripción es requerida."),
     minLength: 4,
-    maxLength: 200,
+    maxLength: 1500,
   },
   image: {
     type: String,

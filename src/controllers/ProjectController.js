@@ -39,8 +39,30 @@ class ProjectController {
 
   async Get() {
     try {
-      const projects = await ProjectModel.find({}, "-_id");
+      const projects = await ProjectModel.find({});
       return projects;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async Delete(id){
+    try {
+      await ProjectModel.findByIdAndDelete(id);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async Update(id,name, description, image, url, repository){
+    try {
+      await ProjectModel.findByIdAndUpdate(id, {
+        name:name,
+        description:description,
+        image:image,
+        url:url,
+        repository:repository,
+      })
     } catch (error) {
       throw error;
     }

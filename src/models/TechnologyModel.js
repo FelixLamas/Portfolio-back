@@ -13,7 +13,7 @@ const TechnologySchema = new Schema({
     type: String,
     require: (true, "El icono de la tecnología es requerido."),
   },
-  description: {
+  seniority: {
     type: String,
     require: (true, "La descripción es requerida."),
     minLength: 4,

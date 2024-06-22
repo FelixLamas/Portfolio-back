@@ -5,6 +5,7 @@ const path = require("path");
 const dataBaseC = require("./dbConection.js");
 const TechnologyRoutes = require("./routes/TechnologyRoutes.js");
 const ProjectRoutes = require("./routes/ProjectRoutes.js");
+const AdminRoutes = require("./routes/AdminRoutes.js");
 
 const app = express();
 
@@ -33,5 +34,7 @@ app.get("/test", async (req, res) => {
     console.error(error);
   }
 });
+
 TechnologyRoutes("/technology", app);
 ProjectRoutes("/project", app);
+AdminRoutes("/admin", app);

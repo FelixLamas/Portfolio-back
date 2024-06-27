@@ -1,9 +1,10 @@
 const ProjectController = require("../controllers/ProjectController");
+const Auth = require("../util/AuthMiddleware")
 
 const ProjectRoutes = (base, app) => {
   const projectController = new ProjectController();
 
-  app.post(`${base}`, async (req, res) => {
+  app.post(`${base}`, Auth.isAuth, async (req, res, next) => {
     try {
       const { name, description, image, url, repository } = req.body;
       await projectController.Create(name, description, image, url, repository);
@@ -28,7 +29,7 @@ const ProjectRoutes = (base, app) => {
     }
   });
 
-  app.delete(`${base}/delete/:id`, async (req, res)=>{
+  app.delete(`${base}/delete/:id`, Auth.isAuth, async (req, res, next)=>{
     try {
       const {id}=req.params;
       console.log(id);
@@ -39,7 +40,7 @@ const ProjectRoutes = (base, app) => {
     }
   })
 
-  app.put(`${base}/update/:id`, async (req, res)=>{
+  app.put(`${base}/update/:id`, Auth.isAuth, async (req, res, next)=>{
     try {
       const {id}=req.params;
       const { name, description, image, url, repository } = req.body;
